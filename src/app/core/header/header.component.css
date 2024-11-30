@@ -20,7 +20,7 @@ ul li:hover {
 }
 ul li a{
     text-decoration:none;
-    color:black;
+    color:#22223B;
     padding: 5px 20px ;
     cursor: pointer;
     text-align: center;
@@ -31,5 +31,12 @@ p{
     margin-left: 10px;
     font-size: 20px;
     cursor: pointer;
+    color:#22223B;
+    font-weight: bold;
 
+}
+li{
+    background-color: #9A8C98;
+    border-radius: 30px;
+    margin-right: 5px;
 }
