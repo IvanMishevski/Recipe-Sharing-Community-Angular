@@ -1,88 +1,35 @@
 /* Main Header Styles */
 header {
     background: #C9ADA7; /* Consistent background color */
+    height: 10vh;
+    
 }
-
-header ul {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 75%;
-    margin: auto;
+ul {
+    float: right;
+    list-style-type: none;
+    margin-top: -22px;
+    min-height: 400px;
+    margin-right: 60px;
+    font-size: 17px;
 }
-
-header ul span {
-    color: white;
-    padding: 0.5em;
+ul li{
+    display: inline-block;
 }
-
-header li {
-    list-style: none;
-    margin: 0.35em;
-    padding: 0 0.95em;
-    background-color: #C9ADA7;
-    width: 15vw;
+ul li:hover {
+    scale: 1.1;
+}
+ul li a{
+    text-decoration:none;
+    color:black;
+    padding: 5px 20px ;
+    cursor: pointer;
     text-align: center;
     border-radius: 20px;
     text-shadow: 1px 1px rgb(87, 86, 86);
-    transition: transform 0.2s ease; /* Smooth scaling transition */
 }
-
-header li:hover {
-    transform: scale(1.1); /* Use transform instead of scale for better compatibility */
-}
-
-header a {
-    text-decoration: none;
-    color: white;
+p{
+    margin-left: 10px;
+    font-size: 20px;
     cursor: pointer;
-}
 
-/* Logo Styling */
-.logo {
-    font-size: 1.75em;
-    color: black;
-    text-align: center;
-    
-}
-
-.logo-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1em 10;
-    min-width: fit-content;
-    
-}
-
-.logo-wrap > img {
-    height: 15vh;
-    margin-right: 1vw;
-    margin-left: -4vw;
-}
-
-/* Mini Navbar Styling */
-.mini-navbar-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: auto;
-}
-
-.mini-navbar ul {
-    margin:0;/* Avoid conflicting spacing */
-    padding: 2vw; /* Reset padding for consistency */
-    list-style: none; /* Ensure no bullet points */
-    display: flex; /* Ensure horizontal layout */ 
-    margin-left: 0;
-    
-}
-
-.mini-navbar ul li {
-    background-color: #4A4E69;
-    width: 15vw;
-    text-align: center
 }

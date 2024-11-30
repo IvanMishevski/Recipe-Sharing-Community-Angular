@@ -1,18 +1,18 @@
 <header>
-    <div class="mini-navbar-wrap">
-        <div class="logo-wrap">
-            <img src="">
-            <p class="logo">Recipes Community</p>
-        </div>
-        <div class="mini-navbar">
+        <div>
+            <div >
+                <img>
+                <p><i class="fa-solid fa-utensils"></i> Recipes Community</p>
+            </div>
+            
             <ul>
                 <li>
                     <a routerLink="/home">Home</a>
                 </li>
                 <li>
-                    <a routerLink="/themes">Themes</a>
+                    <a routerLink="/recipes">Recipes</a>
                 </li>
-                @if(!true){
+                @if(true){
                     <li>
                         <a routerLink="/login">Login</a>
                     </li>
@@ -21,7 +21,7 @@
                     </li>            
                 }@else{
                 <li>
-                    <a routerLink="/add-theme">New Theme</a>
+                    <a routerLink="/add-recipe">New Recipe</a>
                 </li>
                 <li>
                     <a routerLink="/profile">Profile</a>
@@ -32,6 +32,5 @@
                 }
 
             </ul>
-        </div>
-    </div>
+        </div> 
 </header>

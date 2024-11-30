@@ -1,0 +1,15 @@
+footer{
+    position:absolute;
+    bottom: 0;
+    text-align: center;
+    justify-content: space-evenly;
+    font-size: 22px;
+    background: #C9ADA7;
+    float: right;
+    min-width: 100%;
+    min-height: 10vh;
+    align-items: center;  
+}
+p{
+    padding: 10px;
+}
