@@ -1,46 +1,20 @@
-<div class="container">
-    <form class="login">
 
-        <fieldset>
-            <h2>Login Form</h2>
-
-            <p class="field field-icon">
-                <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-                <input type="email" name="email" id="email" placeholder="john.doe@gmail.com">
-            </p>
-
-            <div>
-                <!-- <p class="error">
-                    Email is required!
-                </p>
-                <p class="error">
-                    Email is not valid!
-                </p> -->
-            </div>
-
-
-
-            <p class="field field-icon">
-                <label for="password"><span><i class="fas fa-lock"></i></span></label>
-                <input type="password" name="password" id="password" placeholder="******" autocomplete="on">
-            </p>
-            <div>
-                <!-- <p class="error">
-                    Password is required!
-                </p>
-                <p class="error">
-                    Password must be at least 5 characters!
-                </p> -->
-
-            </div>
-
-            <button>Login</button>
-
-            <p class="text-center">
-                Have an account?
-                <a routerLink="/register">Register</a>
-            </p>
-
-        </fieldset>
-    </form>
-</div>
+<body>
+    <div class="wrapper">
+      <div class="title"><span>Login Form</span></div>
+      <form action="#">
+        <div class="row">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Email" required />
+        </div>
+        <div class="row">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Password" required />
+        </div>
+        <div class="row button">
+          <input type="submit" value="Login" />
+        </div>
+        <div class="signup-link">Not a member? <a routerLink="/register">Signup now</a></div>
+      </form>
+    </div>
+  </body>
