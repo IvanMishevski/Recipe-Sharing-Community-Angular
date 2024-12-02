@@ -71,10 +71,11 @@ form h3{
   margin-left: 10px;
 }
 .input-box.button input{
-  color: #fff;
+  text-shadow: 1px 1px rgb(87, 86, 86);
+  color: #F2E9E4 !important;
   letter-spacing: 1px;
   border: none;
-  background: #9A8C98;
+  background: #4A4E69;
   cursor: pointer;
 }
 .input-box.button input:hover{

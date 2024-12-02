@@ -34,12 +34,13 @@ body {
   height: 120px;
   background: #C9ADA7;
   border-radius: 5px 5px 0 0;
-  color: #22223B;
+  color: #F2E9E4;
   font-size: 30px;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-shadow: 1px 1px rgb(87, 86, 86);
 }
 
 .wrapper form {
