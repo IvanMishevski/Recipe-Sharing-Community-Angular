@@ -1,179 +1,111 @@
-html,
-body {
-  min-height: 100%;
-  font-family: Oxygen;
-  font-weight: 300;
-  font-size: 1em;
-  color: #fff;
+/* login register forms */
+
+form.login, form.register {
+    width: 40%;
+    margin: 2em auto 0;
+    text-align: center;
+    background-color: #C9ADA7; 
+    border-radius: 0.5em;
+    padding: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
-body {
-  background: #2e3441;
-  background-image: -webkit-radial-gradient(top, circle cover, #4e7a89, #2e3441 80%);
-  background-image: -moz-radial-gradient(top, circle cover, #4e7a89, #2e3441 80%);
-  background-image: -o-radial-gradient(top, circle cover, #4e7a89, #2e3441 80%);
-  background-image: radial-gradient(top, circle cover, #4e7a89, #2e3441 80%);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+.login fieldset, .register fieldset {
+    border-radius: 0.5em;
+    padding: 1em;
+    background-color: #F2E9E4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
-.signin {
-  display: block;
-  position: relative;
-  width: 250px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: rgba(0,0,0,0.1);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-shadow: inset 1px 1px 0 0 rgba(255,255,255,0.2), inset -1px -1px 0 0 rgba(0,0,0,0.2);
-  -moz-box-shadow: inset 1px 1px 0 0 rgba(255,255,255,0.2), inset -1px -1px 0 0 rgba(0,0,0,0.2);
-  box-shadow: inset 1px 1px 0 0 rgba(255,255,255,0.2), inset -1px -1px 0 0 rgba(0,0,0,0.2);
+
+.login h2, .register h2 {
+    padding-top: 0;
+    border-bottom: none;
+    color: #22223B;
+    font-size: 1.8em;
 }
-.signin .avatar {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 35px auto;
-  border: 5px solid #fff;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  border-radius: 100%;
-  -webkit-pointer-events: none;
-  -moz-pointer-events: none;
-  pointer-events: none;
+
+.login p, .register p {
+    padding-bottom: 0;
+    padding-top: 1.5rem;
+    color: #333;
 }
-.signin .avatar:before {
-  content: "\f272";
-  text-align: center;
-  font-family: Ionicons;
-  display: block;
-  height: 100%;
-  line-height: 100px;
-  font-size: 5em;
+
+.login input, .register input {
+    flex: 0 1 100%;
+    border: 1px solid #999;
+    padding: 0.4em;
+    border-left: 0.4em solid green;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    font-size: 1em;
 }
-.signin .inputrow {
-  position: relative;
+
+.login select, .register select {
+    border-color: #333;
+    padding: 0.3em;
+    border-radius: 0.3em;
 }
-.signin .inputrow label {
-  position: absolute;
-  top: 12px;
-  left: 10px;
+
+.login button, .register button {
+    cursor: pointer;
+    background-color: #22223B;
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.7em 1.5em;
+    margin-top: 1.5rem;
+    width: 60%;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; 
 }
-.signin .inputrow label:before {
-  color: #538a9a;
-  opacity: 0.4;
-  -webkit-transition: opacity 300ms 0 ease;
-  -moz-transition: opacity 300ms 0 ease;
-  transition: opacity 300ms 0 ease;
+
+.login button:hover, .register button:hover {
+    transform: scale(1.05); 
 }
-.signin input[type="text"],
-.signin input[type="password"] {
-  padding: 10px 12px 10px 32px;
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-  border: 1px solid rgba(255,255,255,0.5);
-  background-color: #fff;
-  color: #333;
-  font-size: 1em;
-  font-weight: 300;
-  outline: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-transition: border-color 300ms 0 ease;
-  -moz-transition: border-color 300ms 0 ease;
-  transition: border-color 300ms 0 ease;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+
+.login i, .register i {
+    border: 1px solid #999;
+    border-right: none;
+    padding: 0.55em;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    background-color: #C9ADA7;
 }
-.signin input[type="text"]:focus + label:before,
-.signin input[type="password"]:focus + label:before {
-  opacity: 1;
+
+.login a, .register a {
+    color: #234465; 
+    text-decoration: none;
 }
-.signin input[type="submit"] {
-    appearance: none;
-  -webkit-appearance: none;
-  height: 40px;
-  padding: 10px 12px;
-  margin-bottom: 10px;
-  background-color: #538a9a;
-  text-transform: uppercase;
-  color: #fff;
-  border: 0px;
-  float: right;
-  margin: 0;
-  outline: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+
+.login a:hover, .register a:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
-.signin input[type="submit"]:hover {
-  background-color: #5e98a8;
+
+.register .tel {
+    padding-right: 0.8em;
 }
-.signin input[type="submit"]:active {
-  background-color: #4a7b89;
+
+.login .field, .register .field {
+    display: flex;
+    padding-bottom: 0.5em;
+    align-items: center;
 }
-input[type="checkbox"] {
-  display: none;
+
+.login .field input, .register .field input {
+    margin-left: 0.5em;
 }
-input[type="checkbox"] + label {
-  position: relative;
-  padding-left: 36px;
-  font-size: 0.6em;
-  font-weight: normal;
-  line-height: 16px;
-  opacity: 0.8;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+
+p.error {
+    text-align: left;
+    border-radius: 0.5em;
+    color: red;
+    padding-top: 0;
+    font-weight: bold;
 }
-input[type="checkbox"] + label:before,
-input[type="checkbox"] + label:after {
-  content: "";
-  position: absolute;
-  display: block;
-  height: 16px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-}
-input[type="checkbox"] + label:before {
-  left: 0;
-  top: -2px;
-  width: 30px;
-  background: rgba(0,0,0,0.3);
-  -webkit-box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.3);
-  -moz-box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.3);
-  box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.3);
-}
-input[type="checkbox"] + label:after {
-  opacity: 0.3;
-  background: #fff;
-  top: 0px;
-  left: 2px;
-  height: 12px;
-  width: 12px;
-  -webkit-transition: all 200ms 0 ease;
-  -moz-transition: all 200ms 0 ease;
-  transition: all 200ms 0 ease;
-}
-input[type="checkbox"]:checked + label {
-  opacity: 1;
-}
-input[type="checkbox"]:checked + label:after {
-  opacity: 1;
-  left: 16px;
-}
-.cf:before,
-.cf:after {
-  content: " ";
-  display: table;
-}
-.cf:after {
-  clear: both;
-}
-.cf {
-  zoom: 1;
+
+.input-error {
+    border-left-color: red;
+    border-color: red;
 }
