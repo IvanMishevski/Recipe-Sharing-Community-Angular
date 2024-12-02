@@ -3,3 +3,6 @@
     padding: 0px;
     font-family: Century;
 }
+html {
+    box-sizing: border-box;
+}

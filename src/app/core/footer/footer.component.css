@@ -1,6 +1,5 @@
-footer{
-    position:absolute;
-    bottom: 0;
+footer {
+    position: relative;
     text-align: center;
     justify-content: space-evenly;
     font-size: 22px;
@@ -8,10 +7,14 @@ footer{
     float: right;
     min-width: 100%;
     min-height: 10vh;
-    align-items: center;  
+    align-items: center;
+    bottom: 0;
 }
-p{
+
+p {
     padding: 10px;
-    color:#22223B;
+    color: #22223B;
     font-weight: bold;
 }
+
+
