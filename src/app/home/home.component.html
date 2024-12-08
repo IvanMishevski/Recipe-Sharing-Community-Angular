@@ -1,8 +1,10 @@
 <div class="container">
     <div class="welcome">
         <h3>Welcome!</h3>
-        <p>The Recipy Sharing Comunity is a place, where you can post your own recipes,find inspiration in those of others, comment and discuss problems, which
+        <p>The Recipy Sharing Comunity is a place, where you can post your own recipes,find inspiration in those of
+            others, comment and discuss problems, which
             you have in the preparation of a meal and much more...</p>
+        @if(!isLoggedIn){
         <div class="logged">
             <ul>
                 <li>
@@ -19,5 +21,6 @@
                 </li>
             </ul>
         </div>
-    </div>        
+        }
+    </div>
 </div>
