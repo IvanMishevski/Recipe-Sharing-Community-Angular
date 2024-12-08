@@ -1,36 +1,37 @@
 <header>
+    <div>
         <div>
-            <div >
-                <img>
-                <p><i class="fa-solid fa-utensils"></i> Recipes Community</p>
-            </div>
-            
-            <ul>
-                <li>
-                    <a routerLink="/home">Home</a>
-                </li>
-                <li>
-                    <a routerLink="/recipes">Recipes</a>
-                </li>
-                @if(true){
-                    <li>
-                        <a routerLink="/login">Login</a>
-                    </li>
-                    <li>
-                        <a routerLink="/register">Register</a>
-                    </li>            
-                }@else{
-                <li>
-                    <a routerLink="/add-recipe">New Recipe</a>
-                </li>
-                <li>
-                    <a routerLink="/profile">Profile</a>
-                </li>
-                <li>
-                    <a routerLink="/logout">Logout</a>
-                </li>
-                }
+            <img>
+            <p><i class="fa-solid fa-utensils"></i> Recipes Community</p>
+        </div>
 
-            </ul>
-        </div> 
+        <ul>
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li>
+                <a routerLink="/recipes">Recipes</a>
+            </li>
+            @if(!isLoggedIn){
+            <li>
+                <a routerLink="/login">Login</a>
+            </li>
+            <li>
+                <a routerLink="/register">Register</a>
+            </li>
+
+            }@else{
+            <li>
+                <a routerLink="/add-recipe">New Recipe</a>
+            </li>
+            <li>
+                <a routerLink="/profile">{{username}}'s Profile</a>
+            </li>
+            <li>
+                <a (click)="logout()">Logout</a>
+            </li>
+            }
+
+        </ul>
+    </div>
 </header>
