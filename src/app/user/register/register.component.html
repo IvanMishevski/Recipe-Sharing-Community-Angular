@@ -1,24 +1,96 @@
 <body>
   <div class="wrapper">
     <h2>Registration</h2>
-    <form action="#">
+    <form [formGroup]="form" (ngSubmit)="register()">
+      <!-- username -->
       <div class="input-box">
-        <input type="text" placeholder="Enter your username" required>
-      </div>   
+        <input [class]="isFieldTextMissing('username') || isNotMinLength('username') ? 'input-error' : ''" type="text"
+          name="username" id="username" placeholder="Enter your username" formControlName="username">
+      </div>
+      @if (form.get('username')?.touched) {
+      <div>
+        @if(form.get('username')?.errors?.['required']){
+        <p class="error">
+          Username is required!
+        </p>
+        }
+        <!--  -->
+        @if(form.get('username')?.errors?.['minlength']){
+        <p class="error">
+          Username must be at least 5 characters!
+        </p>
+        }
+      </div>
+      }
+      <!-- email -->
+      <div class="input-box">
+        <input [class]="isFieldTextMissing('email') || isEmailNotValid ? 'input-error' : ''" type="email" name="email"
+          id="email" placeholder="Enter your email" formControlName="email">
+      </div>
+      @if (form.get('email')?.touched) {
+      <div>
+        @if(form.get('email')?.errors?.['required']){
+        <p class="error">
+          Email is required!
+        </p>
+        }
+        <!--  -->
+        @if(form.get('email')?.errors?.['emailValidator']){
+        <p class="error">
+          Email is not valid!
+        </p>
+        }
+      </div>
+      }
+      <!-- telephone -->
+      <div class="input-box">
+        <input type="text" name="tel" id="tel" placeholder="Enter your phone number" formControlName="tel">
+      </div>
+      <div formGroupName="passGroup">
         <div class="input-box">
-          <input type="text" placeholder="Enter your email" required>
+          <input [class]="(form.get('passGroup')?.get('password')?.touched &&
+          form.get('passGroup')?.get('password')?.errors?.['required']) || 
+          (form.get('passGroup')?.get('password')?.touched &&
+          form.get('passGroup')?.get('password')?.errors?.['minlength']) ? 
+          'input-error' : ''" type="password" name="password" id="password" placeholder="******" autocomplete="on"
+            formControlName="password">
         </div>
-      <div class="input-box">
-        <input type="text" placeholder="Enter your phone number">
-      </div>
-      <div class="input-box">
-        <input type="password" placeholder="Enter password" required>
-      </div>
-      <div class="input-box">
-        <input type="password" placeholder="Confirm password" required>
+        @if (form.get('passGroup')?.get('password')?.touched) {
+        <div>
+          @if(form.get('passGroup')?.get('password')?.errors?.['required']){
+          <p class="error">
+            Password is required!
+          </p>
+          }
+          <!--  -->
+          @if(form.get('passGroup')?.get('password')?.errors?.['minlength']){
+          <p class="error">
+            Password must be at least 5 characters!
+          </p>
+          }
+        </div>
+        }
+        <!-- rePassword -->
+        <div class="input-box">
+          <input
+            [class]="(form.get('passGroup')?.get('rePassword')?.touched &&
+                    form.get('passGroup')?.get('rePassword')?.errors?.['required']) || arePasswordsNotMatching() ? 'input-error' : ''"
+            type="password" name="rePassword" id="rePassword" placeholder="******" autocomplete="on"
+            formControlName="rePassword">
+        </div>
+        @if (form.get('passGroup')?.get('rePassword')?.touched) {
+          <div>
+              @if(form.get('passGroup')?.errors?.['matchPasswordsValidator'] ||
+              form.get('passGroup')?.get('rePassword')?.errors?.['required']){
+              <p class="error">
+                  Repeat Password does not match password!
+              </p>
+              }
+          </div>
+          }
       </div>
       <div class="input-box button">
-        <input type="Submit" value="Register Now">
+        <input [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : '#234465'}" type="Submit" value="Register Now">
       </div>
       <div class="text">
         <h3>Already have an account? <a routerLink="/login">Login</a></h3>

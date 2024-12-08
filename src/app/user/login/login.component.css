@@ -133,3 +133,15 @@ form .button input:hover {
 form .signup-link a:hover {
   text-decoration: underline;
 }
+p.error {
+  text-align: left;
+  border-radius: 0.5em;
+  color: red;
+  padding-top: 0;
+  font-weight: bold;
+}
+
+.input-error {
+  border-left-color: red ;
+  border-color: red ;
+}

@@ -5,14 +5,16 @@
       <form #form="ngForm" (ngSubmit)="login(form)">
         <div class="row">
             <i class="fa-solid fa-envelope"></i>
-          <input type="text" placeholder="Email" required />
+          <input type="email" name="email" id="email" placeholder="john.doe@gmail.com" ngModel
+          #inputEmail="ngModel" required/>
         </div>
         <div class="row">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" required />
+          <input type="password" name="password" id="password" placeholder="******" autocomplete="on" ngModel
+          #inputPassword="ngModel" minlength="5" required/>
         </div>
         <div class="row button">
-          <input type="submit" value="Login" />
+          <input [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : '#234465'}" type="submit" value="Login" />
         </div>
         <div class="signup-link">Not a member? <a routerLink="/register">Register</a></div>
       </form>
