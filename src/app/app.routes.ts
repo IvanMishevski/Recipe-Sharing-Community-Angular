@@ -4,7 +4,7 @@ import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { ProfileComponent } from './user/profile/profile.component';
-import { RecipesCatalogComponent } from './recipes-catalog/recipes-catalog.component';
+import { RecipesCatalogComponent } from './recipes/recipes-catalog/recipes-catalog.component';
 import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
 
 export const routes: Routes = [
