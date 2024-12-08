@@ -5,6 +5,7 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RecipesCatalogComponent } from './recipes-catalog/recipes-catalog.component';
+import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'/home', pathMatch: 'full'},
@@ -13,7 +14,7 @@ export const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'register',component:RegisterComponent},
     {path:'profile',component:ProfileComponent},
-    // {path:'logout',component:ProfileComponent},
+    {path:'logout',component:ProfileComponent},
     //start recipes routing
      {path:'recipes', children:[
      {path: '', component:RecipesCatalogComponent},
@@ -21,6 +22,7 @@ export const routes: Routes = [
      ]},
     // {path:'add-theme',component:AddRecipeComponent},
     // //end recipe routing
+    { path: 'error', component: ErrorMsgComponent },
     {path:'404*', component:ErrorComponent},
     {path:'**', component:ErrorComponent}
 
