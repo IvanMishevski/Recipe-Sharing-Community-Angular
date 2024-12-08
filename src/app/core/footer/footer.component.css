@@ -1,5 +1,5 @@
 footer {
-    position: relative;
+    position: sticky;
     text-align: center;
     justify-content: space-evenly;
     font-size: 22px;

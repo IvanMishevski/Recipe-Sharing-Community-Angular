@@ -1,1 +1,84 @@
-<p>add-recipe works!</p>
+<div class="container">
+    <div class="new-recipe-border">
+        <div class="header-background">
+            <span>New Recipe</span>
+        </div>
+        <form #form="ngForm" (ngSubmit)="addRecipe(form)">
+            <div class="new-recipe-title">
+                <label for="recipeName">Title <span class="red">*</span></label>
+                <input 
+                type="text" 
+                name="recipeName" 
+                id="recipeName" 
+                ngModel
+                #inputRecipeName="ngModel"
+                required
+                minlength="5"
+                >
+                @if(inputRecipeName?.touched){
+                 <div>
+                    @if(inputRecipeName?.errors?.['required']){
+                        <p class="error">
+                            Recipe name is required.
+                        </p> 
+                    }
+                    @if(inputRecipeName?.errors?.['minlength']){
+                        <p class="error">
+                            Recipe name must be at least 5 characters long.
+                        </p>
+                    }
+                    
+                 </div>
+                }
+               
+            </div>
+            <div class="new-recipe-title">
+                <label for="image">Image <span class="red">*</span></label>
+                <input 
+                type="text" 
+                name="image" 
+                id="image" 
+                ngModel
+                #inputImageName="ngModel"
+                minlength="5"
+                > 
+            </div>
+            <div class="new-recipe-content">
+                <label for="description">Description <span class="red">*</span></label>
+                <textarea 
+                type="text" 
+                name="description" 
+                id="description" 
+                rows="8" 
+                class="height" 
+                ngModel
+                #inputDescriptionText="ngModel"
+                required
+                minlength="10"
+
+                ></textarea>
+                @if(inputDescriptionText?.touched){
+                    <div>
+                       @if(inputDescriptionText?.errors?.['required']){
+                           <p class="error">
+                            The field with your post is required.
+                           </p> 
+                       }
+                       @if(inputDescriptionText?.errors?.['minlength']){
+                           <p class="error">
+                            Post must be at least 10 characters long.
+                           </p>
+                       }
+                       
+                    </div>
+                   }
+            </div>
+            <div class="new-recipe-buttons">
+                <button class="cancel">Cancel</button>
+                <button class="public" [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : '#234465'}">Post</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+

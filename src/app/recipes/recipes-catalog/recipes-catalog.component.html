@@ -1,1 +1,9 @@
-<p>recipes-catalog works!</p>
+<main>
+    @for (recipe of recipes; track $index) {
+    <div class="card">
+        <img [src]="recipe.image" [alt]="recipe.recipeName" style="width:100%">
+        <h1>{{recipe.recipeName}}</h1>
+        <p>{{recipe.description}}</p>
+    </div>
+    }
+</main>
