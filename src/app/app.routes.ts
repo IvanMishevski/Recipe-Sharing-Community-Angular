@@ -8,14 +8,14 @@ import { RecipesCatalogComponent } from './recipes/recipes-catalog/recipes-catal
 import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
-import { LoggedInGuard } from './guards/logged-in.guard';
+
 
 
 export const routes: Routes = [
     {path:'', redirectTo:'/home', pathMatch: 'full'},
     {path:'home', component:HomeComponent},
     //user routing
-    {path:'login',component:LoginComponent, canActivate:[LoggedInGuard]},
+    {path:'login',component:LoginComponent},
     {path:'register',component:RegisterComponent},
     {path:'profile',component:ProfileComponent, canActivate:[AuthGuard]},
     {path:'logout',component:ProfileComponent},
@@ -24,10 +24,10 @@ export const routes: Routes = [
      {path: '', component:RecipesCatalogComponent},
      //{path: ':recipeId',component:CurrentRecipeComponent}    
      ]},
-     {path:'add-theme',component:AddRecipeComponent, canActivate:[AuthGuard]},
+     {path:'add-recipe',component:AddRecipeComponent, canActivate:[AuthGuard]},
     // //end recipe routing
     { path: 'error', component: ErrorMsgComponent },
-    {path:'404*', component:ErrorComponent},
+    {path:'404', component:ErrorComponent},
     {path:'**', component:ErrorComponent}
 
 

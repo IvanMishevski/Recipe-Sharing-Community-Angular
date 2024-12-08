@@ -1,9 +1,9 @@
 import { HttpInterceptorFn } from '@angular/common/http';
-import { environment } from '../environments/environment.development';
 import { ErrorMsgService } from './core/error-msg/error-msg.service';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { catchError } from 'rxjs';
+import { environment } from '../environments/environment.development';
 
 const { apiUrl } = environment
 

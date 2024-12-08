@@ -9,21 +9,23 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(limit?: number) {
+  getComments(limit?: number) {
     let url = `/api/comments`;
     if (limit) {
       url += `?limit=${limit}`
     }
     return this.http.get<Comment[]>(url)
   }
-  getThemes() {
+  getRecipes() {
     return this.http.get<Recipe[]>(`/api/recipes`)
   }
-  getSingleTheme(id: string) {
+  getSingleRecipe(id: string) {
     return this.http.get<Recipe>(`/api/recipes/${id}`)
   }
-  createTheme(themeName: string,postText: string){
-    const payload = {themeName, postText}
+  createRecipe(recipeName: string,image:string,description: string){
+    console.log(recipeName,description,image);
+    
+    const payload = {recipeName,description,image}
     return this.http.post<Recipe>(`/api/recipes`,payload);
   }
 }
