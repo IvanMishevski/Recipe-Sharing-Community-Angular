@@ -9,7 +9,12 @@
                 <h2 class="product-title">{{recipe.recipeName}}</h2>
                 <p class="product-description">{{recipe.description | slice: 25}}</p>
                 <div class="buttons">
-                    <button class="details-btn">Details</button>
+                    <button [routerLink]="recipe._id" class="details-btn">Details</button>
+                     @if(userId == recipe.userId._id){
+                        <button  class="details-btn">Edit</button>
+                        <button  class="details-btn">Delete</button>
+                     }
+                    
                 </div>
             </div>
         </div>
