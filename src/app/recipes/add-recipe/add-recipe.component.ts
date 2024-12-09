@@ -11,20 +11,19 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './add-recipe.component.css'
 })
 export class AddRecipeComponent {
-  constructor(private apiService: ApiService,private router:Router) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   addRecipe(form: NgForm) {
-
+    
     if (form.invalid) {
+      
       return;
     }
     const { recipeName, image, description } = form.value;
 
-    return this.apiService.createRecipe( recipeName, image, description ).subscribe((data) => {
-      console.log(data);
-       
-      this.router.navigate(['home'])
-
-    })
+      this.apiService.createRecipe(recipeName, image, description).subscribe();
+      if(this.apiService.createRecipe(recipeName, image, description).subscribe()){
+        this.router.navigate(['/recipes'])
+      }
   }
 }

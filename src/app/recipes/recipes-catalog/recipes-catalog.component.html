@@ -1,9 +1,19 @@
-<main>
-    @for (recipe of recipes; track $index) {
-    <div class="card">
-        <img [src]="recipe.image" [alt]="recipe.recipeName" style="width:100%">
-        <h1>{{recipe.recipeName}}</h1>
-        <p>{{recipe.description}}</p>
+<body>
+    <div class="container">
+        @for (recipe of recipes; track $index) {
+        <div class="product-card">
+            <div class="product-image">
+                <img [src]="recipe.image" [alt]="recipe.recipeName">
+            </div>
+            <div class="product-details">
+                <h2 class="product-title">{{recipe.recipeName}}</h2>
+                <p class="product-description">{{recipe.description | slice: 25}}</p>
+                <div class="buttons">
+                    <button class="details-btn">Details</button>
+                </div>
+            </div>
+        </div>
+        }
+
     </div>
-    }
-</main>
+</body>

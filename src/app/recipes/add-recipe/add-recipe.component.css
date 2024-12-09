@@ -7,7 +7,7 @@
     margin: auto;
     margin-top: 2em;
     padding: 1.2em;
-    background-color: #e4e3e3; 
+    background-color: #F2E9E4; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
@@ -16,8 +16,8 @@
 }
 
 .header-background {
-    background-color: #234465;
-    border: 1px solid #234465;
+    background-color: #9A8C98;
+    border: 1px solid #9A8C98;
     padding: 1.5em;
     padding-bottom: 0;
     margin-bottom: 1em;
@@ -85,7 +85,7 @@ button+button {
     padding: 0.6em 1.8em;
     border: 1px solid #333333;
     border-radius: 0.5em;
-    background-color: #ff9f00; 
+    background-color: #4A4E69; 
     color: white;
     text-shadow: 1px 1px rgb(87, 86, 86);
     cursor: pointer;

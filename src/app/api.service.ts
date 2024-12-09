@@ -23,8 +23,6 @@ export class ApiService {
     return this.http.get<Recipe>(`/api/recipes/${id}`)
   }
   createRecipe(recipeName: string,image:string,description: string){
-    console.log(recipeName,description,image);
-    
     const payload = {recipeName,description,image}
     return this.http.post<Recipe>(`/api/recipes`,payload);
   }
