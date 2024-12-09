@@ -26,4 +26,8 @@ export class ApiService {
     const payload = {recipeName,description,image}
     return this.http.post<Recipe>(`/api/recipes`,payload);
   }
+  createComment(text: string,recipeId:string){
+   const payload = {commentText: text};
+   return this.http.post<Comment>(`/api/recipes/${recipeId}`,payload)
+  }
 }
