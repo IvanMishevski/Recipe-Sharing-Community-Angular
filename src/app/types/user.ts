@@ -15,5 +15,5 @@ export interface UserForAuth{
     email:string,
     phoneNumber:string,
     password:string,
-    id:string
+    _id:string
 }
