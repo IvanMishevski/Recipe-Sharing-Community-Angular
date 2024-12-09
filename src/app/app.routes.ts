@@ -8,6 +8,7 @@ import { RecipesCatalogComponent } from './recipes/recipes-catalog/recipes-catal
 import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
+import { CurrentRecipeComponent } from './recipes/current-recipe/current-recipe.component';
 
 
 
@@ -22,7 +23,7 @@ export const routes: Routes = [
     //start recipes routing
      {path:'recipes', children:[
      {path: '', component:RecipesCatalogComponent},
-     //{path: ':recipeId',component:CurrentRecipeComponent}    
+     {path: ':recipeId',component:CurrentRecipeComponent}    
      ]},
      {path:'add-recipe',component:AddRecipeComponent, canActivate:[AuthGuard]},
     // //end recipe routing
