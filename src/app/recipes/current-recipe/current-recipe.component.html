@@ -1,1 +1,70 @@
-<p>current-recipe works!</p>
+<div class="container">
+    <!-- recipe content  -->
+    <div class="recipe-content">
+      <!-- recipe-title  -->
+  
+      @if(!isLoggedIn){
+      <app-home />
+      }
+      <div class="recipe-title">
+        <div class="recipe-name-wrapper">
+          <div class="recipe-name">
+            <h2>{{ recipe.recipeName }}</h2>
+            <p>
+              Date: <time>{{ recipe.created_at | date : "yyyy-MM-dd HH:mm:ss"  }}</time>
+            </p>
+          </div>
+          <div class="subscribers">
+            <p>
+              Subscribers: <span>{{ recipe.subscribers.length || 0 }}</span>
+            </p>
+            <!-- <button class="subscribe">Subscribe</button>
+                      <button class="unsubscribe">Unsubscribe</button> -->
+          </div>
+        </div>
+      </div>
+  
+      <!-- comment  -->
+  
+      @for (comment of recipe.comments; track $index) {
+      <div class="comment">
+        <header class="header">
+          <p>
+            <span>{{ comment.userId.username }}</span> commented
+            <time>{{ comment.created_at | elapsedTime }}</time>
+          </p>
+        </header>
+        <div class="comment-main">
+          <div class="userdetails">
+            <img src="profile.png" alt="avatar" />
+          </div>
+          <div class="post-content">
+            <p>
+              {{ comment.text }}
+            </p>
+          </div>
+        </div>
+        <div class="footer">
+          <!-- <i class="fas fa-thumbs-up"></i>
+          <i class="fas fa-thumbs-down"></i> -->
+          <p>
+            <span>{{ comment.likes.length || 0 }}</span> likes
+          </p>
+        </div>
+      </div>
+  
+      } @if(isLoggedIn){
+      <div class="answer-comment">
+        <p>
+          <span>{{ username }}</span> comment:
+        </p>
+        <div class="answer">
+          <form #form="ngForm" (ngSubmit)="onComment(form)">
+            <textarea name="text" id="comment" cols="30" rows="10" ngModel #inputText="ngModel" minlength="10"></textarea>
+            <button>Post</button>
+          </form>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
