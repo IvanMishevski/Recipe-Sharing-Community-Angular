@@ -18,7 +18,7 @@ export class RecipesCatalogComponent {
 
   ngOnInit(){
     this.apiService.getRecipes().subscribe(recipes=>{
-      this.recipes = recipes.slice(-5);
+      this.recipes = recipes;
       this.isLoading = false;
     });
   }
