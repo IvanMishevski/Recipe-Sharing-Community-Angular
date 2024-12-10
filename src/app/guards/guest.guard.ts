@@ -14,7 +14,7 @@ export const GuestGuard = () => {
       if (!user) {
         return true;
       }
-      router.navigate(['/recipes']);
+      router.navigate(['/home']);
       return false;
     })
   );
