@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Recipe } from '../../types/recipe';
 import { ApiService } from '../../api.service';
 import { SlicePipe } from '../../shared/pipes/slice.pipe';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../user/user.service';
 
 @Component({
@@ -16,11 +16,14 @@ export class RecipesCatalogComponent {
   recipes: Recipe[] = [];
   isLoading = true;
   userId = '';
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged;
+  }
 
-  constructor(private apiService: ApiService, private userService: UserService) { }
+  constructor(private apiService: ApiService, private userService: UserService, private router:Router) { }
 
   ngOnInit() {
-    if(this.userService.isLogged){
+    if(this.isLoggedIn){
       this.userService.getProfile().subscribe((user)=>{
         this.userId = user._id;   
       })
@@ -28,6 +31,19 @@ export class RecipesCatalogComponent {
     this.apiService.getRecipes().subscribe(recipes => {
       this.recipes = recipes;
       this.isLoading = false;
+    });
+  }
+  onEdit(recipeId:string) {
+
+  }
+  onDelete(recipeId:string){
+    return this.apiService.deleteRecipe(recipeId).subscribe({
+      next: () => {
+        // Reload the current route
+        this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+          this.router.navigate(['/recipes']);
+        });
+      }
     });
   }
 }

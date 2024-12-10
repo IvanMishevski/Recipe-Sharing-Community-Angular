@@ -11,8 +11,8 @@
                 <div class="buttons">
                     <button [routerLink]="recipe._id" class="details-btn">Details</button>
                      @if(userId == recipe.userId._id){
-                        <button  class="details-btn">Edit</button>
-                        <button  class="details-btn">Delete</button>
+                        <button (click)="onEdit(recipe._id)" class="details-btn">Edit</button>
+                        <button  (click)="onDelete(recipe._id)" class="details-btn">Delete</button>
                      }
                     
                 </div>
