@@ -1,6 +1,9 @@
 * {
     margin: 0;
 }
+i {
+    cursor: pointer;
+}
 /* Main */
 .main {
     margin-top: 2%;
@@ -8,6 +11,7 @@
     font-size: 28px;
     padding: 0 10px;
     width: 58%;
+    margin-bottom: 9.35%;
 }
 
 .main h2 {
@@ -15,6 +19,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 24px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .main .card {
@@ -32,10 +37,109 @@
     height: 270px;
     width: 100%;
 }
-
 .edit {
     position: absolute;
     color: #e7e7e8;
     right: 14%;
 }
-
+body{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F2E9E4;
+  }
+  .wrapper{
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    background: #fff;
+    padding: 34px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+  .wrapper h2{
+    position: relative;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+  }
+  .wrapper h2::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 28px;
+    border-radius: 12px;
+    background: #C9ADA7;
+  }
+  .wrapper form{
+    margin-top: 30px;
+  }
+  .wrapper form .input-box{
+    height: 52px;
+    margin: 18px 0;
+  }
+  form .input-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #333;
+    border: 1.5px solid #C7BEBE;
+    border-bottom-width: 2.5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  .input-box input:focus,
+  .input-box input:valid{
+    border-color: #4070f4;
+  }
+  form .policy{
+    display: flex;
+    align-items: center;
+  }
+  form h3{
+    color: #707070;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+  }
+  .input-box.button input{
+    text-shadow: 1px 1px rgb(87, 86, 86);
+    color: #F2E9E4 !important;
+    letter-spacing: 1px;
+    border: none;
+    background: #4A4E69;
+    cursor: pointer;
+  }
+  .input-box.button input:hover{
+    background: #4A4E69;
+  }
+  form .text h3{
+   color: #333;
+   width: 100%;
+   text-align: center;
+  }
+  form .text h3 a{
+    color: #9A8C98;
+    text-decoration: none;
+  }
+  form .text h3 a:hover{
+    text-decoration: underline;
+  }
+  p.error {
+    text-align: left;
+    border-radius: 0.5em;
+    color: red;
+    padding-top: 0;
+    font-weight: bold;
+  }
+  
+  .input-error {
+    border-left-color: red;
+    border-color: red;
+  }

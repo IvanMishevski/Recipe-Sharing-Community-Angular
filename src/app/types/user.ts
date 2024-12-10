@@ -15,10 +15,12 @@ export interface UserForAuth{
     email:string,
     tel?:string,
     password:string,
+    created_at:string,
     _id:string
 }
 export interface ProfileDetails {
     username: string;
     email: string;
     tel: string;
+    "created_at": string;
   }

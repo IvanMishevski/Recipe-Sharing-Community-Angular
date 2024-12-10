@@ -1,41 +1,96 @@
+
+@if(!isEditMode){
 <div class="main">
-    <h2>IDENTITY</h2>
+    <h2>My profile</h2>
     <div class="card">
         <div class="card-body">
-            <i class="fa fa-pen fa-xs edit"></i>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Name</td>
-                        <td>:</td>
-                        <td>ImDezCode</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td>:</td>
-                        <td>imdezcodegmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>Address</td>
-                        <td>:</td>
-                        <td>Bali, Indonesia</td>
-                    </tr>
-                    <tr>
-                        <td>Hobbies</td>
-                        <td>:</td>
-                        <td>Diving, Reading Book</td>
-                    </tr>
-                    <tr>
-                        <td>Job</td>
-                        <td>:</td>
-                        <td>Web Developer</td>
-                    </tr>
-                    <tr>
-                        <td>Skill</td>
-                        <td>:</td>
-                        <td>PHP, HTML, CSS, Java</td>
-                    </tr>
-                </tbody>
-            </table>
+            <ng-container>
+                <i (click)="toggleEditMode()" class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Username</td>
+                            <td>:</td>
+                            <td>{{profileDetails.username}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>{{profileDetails.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone number</td>
+                            <td>:</td>
+                            <td>{{profileDetails.tel}}</td>
+                        </tr>
+                        <tr>
+                            <td>Account created on</td>
+                            <td>:</td>
+                            <td>{{profileDetails.created_at | date: "dd.MM.yyyy"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-container>
         </div>
     </div>
+</div>
+}@else {
+    <body>
+        <div class="wrapper">
+          <h2>My profile</h2>
+          <form [formGroup]="form" (ngSubmit)="handleSaveProfile()">
+            <ng-container>
+
+            </ng-container>
+            <!-- username -->
+            <div class="input-box">
+                <p>Username:</p>
+                <input type="text" name="username" id="username" value="Johny" formControlName="username" />
+            </div>
+            @if(form.get('username')?.touched){
+            <div>
+                @if(form.get('username')?.errors?.['required']){
+                <p class="error">Username is required!</p>
+                }
+                <!--  -->
+                @if(form.get('username')?.errors?.['minlength']){
+                <p class="error">Username must be at least 5 characters!</p>
+                }
+            </div>
+            }
+            <!-- email -->
+            <div class="input-box">
+                <p>Email:</p>
+                <input type="email" name="email" id="email" value="john.doe@gmail.com" formControlName="email" />
+            </div>
+
+            @if(form.get('email')?.touched){
+            <div>
+                @if(form.get('email')?.errors?.['required']){
+                <p class="error">Email is required!</p>
+                }
+                <!--  -->
+                @if(form.get('email')?.errors?.['emailValidator']){
+                <p class="error">Email is not valid!</p>
+                }
+            </div>
+            }
+
+            <div class="input-box">
+                <p>Phone:</p>
+                <div>
+                    <input type="text" name="tel" id="tel" value="885 888 888" formControlName="tel" />
+                </div>
+            </div>
+
+            <div class="input-box button">
+                <button (click)="onCancel($event)">Cancel</button>
+                <button [disabled]="form.invalid"
+                    [style]="{ backgroundColor: form.invalid ? 'grey' : '#5cb85c' }">
+                    Save
+                </button>
+            </div>   
+          </form>
+        </div>
+      </body>
+}

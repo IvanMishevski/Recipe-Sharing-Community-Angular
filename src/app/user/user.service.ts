@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { UserForAuth } from '../types/user';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,6 +13,7 @@ export class UserService {
   private user$ = this.user$$.asObservable();
 
   user: UserForAuth | null = null;
+  userSubscription: Subscription | null = null;
 
   get isLogged(): boolean {
     return !!this.user;
@@ -43,5 +44,18 @@ export class UserService {
   getProfile(){
     return this.http.get<UserForAuth>('/api/users/profile')
     .pipe(tap((user) => this.user$$.next(user)))
+  }
+  updateProfile(username: string, email: string, tel?: string,) {
+    return this.http
+      .put<UserForAuth>(`/api/users/profile`, {
+        username,
+        email,
+        tel,
+      })
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription?.unsubscribe();
   }
 }
