@@ -20,10 +20,11 @@ export class RecipesCatalogComponent {
   constructor(private apiService: ApiService, private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getProfile().subscribe((user)=>{
-      console.log(user._id);
-      this.userId = user._id;   
-    })
+    if(this.userService.isLogged){
+      this.userService.getProfile().subscribe((user)=>{
+        this.userId = user._id;   
+      })
+    } 
     this.apiService.getRecipes().subscribe(recipes => {
       this.recipes = recipes;
       this.isLoading = false;
