@@ -10,8 +10,8 @@ import { UserService } from '../user/user.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  constructor(private userService:UserService){}
+  constructor(private userService: UserService) { }
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
-}
+  }
 }

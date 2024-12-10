@@ -115,6 +115,7 @@ html, body {
   font-weight: bold;
   cursor: pointer;
   text-shadow: 1px 1px rgb(87, 86, 86);
+  margin-right: 7px;
 }
 
 .details-btn {

@@ -15,6 +15,7 @@ import { DOMAINS } from '../../constants';
 })
 export class ProfileComponent implements OnInit {
   isEditMode: boolean = false;
+  
   get createdOn(): string {
     return this.userService.user!.created_at;
   }

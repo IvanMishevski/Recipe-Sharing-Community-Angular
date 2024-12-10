@@ -15,7 +15,11 @@ import { UserService } from '../../user/user.service';
 export class RecipesCatalogComponent {
   recipes: Recipe[] = [];
   isLoading = true;
-  userId = '';
+  
+  public get userId() : string | undefined {
+    return this.userService.user?._id;
+  }
+  
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
@@ -23,9 +27,11 @@ export class RecipesCatalogComponent {
   constructor(private apiService: ApiService, private userService: UserService, private router:Router) { }
 
   ngOnInit() {
+    
+    console.log(this.userId);
+    
     if(this.isLoggedIn){
-      this.userService.getProfile().subscribe((user)=>{
-        this.userId = user._id;   
+      this.userService.getProfile().subscribe((user)=>{ 
       })
     } 
     this.apiService.getRecipes().subscribe(recipes => {

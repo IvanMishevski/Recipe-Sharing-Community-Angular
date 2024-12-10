@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
 
   private user$$ = new BehaviorSubject<UserForAuth | null >(null)
-  private user$ = this.user$$.asObservable();
+  public user$ = this.user$$.asObservable();
 
   user: UserForAuth | null = null;
   userSubscription: Subscription | null = null;
@@ -54,7 +54,6 @@ export class UserService {
       })
       .pipe(tap((user) => this.user$$.next(user)));
   }
-
   ngOnDestroy(): void {
     this.userSubscription?.unsubscribe();
   }

@@ -2,7 +2,7 @@ import { HttpInterceptorFn } from '@angular/common/http';
 import { ErrorMsgService } from './core/error-msg/error-msg.service';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
-import { catchError } from 'rxjs';
+import { catchError, throwError } from 'rxjs';
 import { environment } from '../environments/environment.development';
 
 const { apiUrl } = environment
@@ -26,7 +26,7 @@ export const appInterceptor: HttpInterceptorFn = (req, next) => {
         errorMsgService.setError(err);
         router.navigate(['/error'])
       }
-      return [err];
+      return throwError(() => err);
     })
   )
 };

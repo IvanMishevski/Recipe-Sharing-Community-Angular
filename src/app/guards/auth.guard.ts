@@ -4,7 +4,7 @@ import { UserService } from '../user/user.service';
 
 export const AuthGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot, 
-  state: RouterStateSnapshot
+  state: RouterStateSnapshot,
 ) => {
   const userService = inject(UserService);
   const router = inject(Router);
@@ -16,3 +16,5 @@ export const AuthGuard: CanActivateFn = (
   router.navigate(['/home']);
   return false;
 };
+
+
