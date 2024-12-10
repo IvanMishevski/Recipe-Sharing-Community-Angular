@@ -19,10 +19,15 @@ export class UserService {
     return !!this.user;
   }
   constructor(private http: HttpClient) {
+    this.getProfile().subscribe({
+      next: (user) => this.user$$.next(user),
+      error: () => this.user$$.next(null)
+    });
+    
     this.user$.subscribe((user)=> {
       this.user = user
-    })
-   }
+    });
+}
 
   login(email: string, password: string) {
 
