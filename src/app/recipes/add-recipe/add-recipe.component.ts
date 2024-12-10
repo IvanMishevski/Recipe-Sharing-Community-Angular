@@ -21,9 +21,8 @@ export class AddRecipeComponent {
     }
     const { recipeName, image, description } = form.value;
 
-      this.apiService.createRecipe(recipeName, image, description).subscribe();
-      if(this.apiService.createRecipe(recipeName, image, description).subscribe()){
+      this.apiService.createRecipe(recipeName, image, description).subscribe(()=>{
         this.router.navigate(['/recipes'])
-      }
+      });
   }
 }
