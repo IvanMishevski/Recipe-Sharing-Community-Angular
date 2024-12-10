@@ -9,6 +9,7 @@ import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
 import { CurrentRecipeComponent } from './recipes/current-recipe/current-recipe.component';
+import { GuestGuard } from './guards/guest.guard';
 
 
 
@@ -16,10 +17,10 @@ export const routes: Routes = [
     {path:'', redirectTo:'/home', pathMatch: 'full'},
     {path:'home', component:HomeComponent},
     //user routing
-    {path:'login',component:LoginComponent},
+    {path:'login',component:LoginComponent,canActivate: [GuestGuard]},
     {path:'register',component:RegisterComponent},
     {path:'profile',component:ProfileComponent, canActivate:[AuthGuard]},
-    {path:'logout',component:ProfileComponent},
+    {path:'logout',component:ProfileComponent,canActivate: [GuestGuard]},
     //start recipes routing
      {path:'recipes', children:[
      {path: '', component:RecipesCatalogComponent},
