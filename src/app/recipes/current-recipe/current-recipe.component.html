@@ -11,15 +11,24 @@
           <div class="recipe-name">
             <h2>{{ recipe.recipeName }}</h2>
             <p>
-              Date: <time>{{ recipe.created_at | date : "yyyy-MM-dd HH:mm:ss"  }}</time>
+              Posted on: <time>{{ recipe.created_at | date : "dd.MM.yyyy"  }}</time>
             </p>
+            <div class="recipe-description">
+              {{recipe.description}}
+            </div>
           </div>
           <div class="subscribers">
             <p>
               Subscribers: <span>{{ recipe.subscribers.length || 0 }}</span>
             </p>
-            <!-- <button class="subscribe">Subscribe</button>
-                      <button class="unsubscribe">Unsubscribe</button> -->
+            @if(isLoggedIn){
+              @if(!isSubscribed){
+                <button (click)="onSubscribe()" class="subscribe">Subscribe</button>
+              }
+            }
+            
+            
+            
           </div>
         </div>
       </div>
@@ -44,27 +53,22 @@
             </p>
           </div>
         </div>
-        <div class="footer">
-          <!-- <i class="fas fa-thumbs-up"></i>
-          <i class="fas fa-thumbs-down"></i> -->
-          <p>
-            <span>{{ comment.likes.length || 0 }}</span> likes
-          </p>
-        </div>
+       
       </div>
   
-      } @if(isLoggedIn){
+      } 
+      @if(isLoggedIn){
       <div class="answer-comment">
         <p>
           <span>{{ username }}</span> comment:
         </p>
         <div class="answer">
           <form #form="ngForm" (ngSubmit)="onComment(form)">
-            <textarea name="text" id="comment" cols="30" rows="10" ngModel #inputText="ngModel" minlength="10"></textarea>
-            <button>Post</button>
+            <textarea name="text" id="comment" cols="30" rows="10" ngModel #inputText="ngModel" minlength="10" required></textarea>
+            <button [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : '#234465'}">Post</button>
           </form>
         </div>
       </div>
-      }
-    </div>
+    }
   </div>
+</div>

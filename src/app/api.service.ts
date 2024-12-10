@@ -30,4 +30,8 @@ export class ApiService {
    const payload = {commentText: text};
    return this.http.post<Comment>(`/api/recipes/${recipeId}`,payload)
   }
+  subscribe(recipeId:string){
+    const payload = {recipeId}
+    return this.http.put(`/api/recipes/${recipeId}`,payload)
+  }
 }
