@@ -3,6 +3,7 @@
 }
 i {
     cursor: pointer;
+    color:#22223B;
 }
 /* Main */
 .main {
@@ -15,20 +16,22 @@ i {
 }
 
 .main h2 {
-    color: #333;
+    color: #22223B;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 24px;
     margin-bottom: 10px;
     text-align: center;
+    margin-left: -30%;
 }
 
 .main .card {
-    background-color: #fff;
+    background-color: #F2E9E4;
     border-radius: 18px;
     box-shadow: 1px 1px 8px 0 grey;
     height: auto;
     margin-bottom: 20px;
     padding: 20px 0 20px 50px;
+    margin-left: -30%;
 }
 
 .main .card table {
@@ -36,12 +39,15 @@ i {
     font-size: 16px;
     height: 270px;
     width: 100%;
+    color:#22223B
 }
 .edit {
     position: absolute;
     color: #e7e7e8;
     right: 14%;
 }
+/* EditMode */
+/* ================================= */
 body{
     min-height: 80vh;
     display: flex;
@@ -82,17 +88,20 @@ body{
     margin: 18px 0;
   }
   form .input-box input{
-    height: 100%;
-    width: 100%;
+    height: fit-content;
+    width: 90%;
     outline: none;
     padding: 0 15px;
     font-size: 17px;
     font-weight: 400;
-    color: #333;
+    color: #22223B;
     border: 1.5px solid #C7BEBE;
     border-bottom-width: 2.5px;
     border-radius: 6px;
     transition: all 0.3s ease;
+    text-shadow: 0.5px 0.5px rgb(0, 0, 0);
+    
+
   }
   .input-box input:focus,
   .input-box input:valid{
@@ -108,16 +117,19 @@ body{
     font-weight: 500;
     margin-left: 10px;
   }
-  .input-box.button input{
+  .input-box.button {
     text-shadow: 1px 1px rgb(87, 86, 86);
     color: #F2E9E4 !important;
     letter-spacing: 1px;
     border: none;
-    background: #4A4E69;
     cursor: pointer;
+    justify-self: center;
   }
-  .input-box.button input:hover{
+  .input-box.button :hover{
     background: #4A4E69;
+  }
+  .button{
+    margin-right: 1%;
   }
   form .text h3{
    color: #333;
@@ -143,3 +155,22 @@ body{
     border-left-color: red;
     border-color: red;
   }
+  .profile-buttons{
+    margin-top: 1em;
+    text-align: center;
+  }.profile-buttons button {
+    padding: 0.6em 1.8em;
+    border: 1px solid #333333;
+    border-radius: 0.5em;
+    background-color: #F2E9E4; 
+    color: #22223B;
+    text-shadow: 1px 1px rgb(87, 86, 86);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-right: 1rem;
+    text-shadow: 0.5px 0.5px rgb(0, 0, 0);
+}
+
+.profile-buttons button:hover {
+    transform: scale(1.05); 
+}

@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body">
             <ng-container>
-                <i (click)="toggleEditMode()" class="fa fa-pen fa-xs edit"></i>
+                <i (click)="toggleEditMode()" class="fa fa-pen fa-xs edit" style="color:#22223B;"></i>
                 <table>
                     <tbody>
                         <tr>
@@ -75,20 +75,15 @@
                 }
             </div>
             }
-
             <div class="input-box">
                 <p>Phone:</p>
                 <div>
                     <input type="text" name="tel" id="tel" value="885 888 888" formControlName="tel" />
                 </div>
             </div>
-
-            <div class="input-box button">
+            <div class="profile-buttons">
                 <button (click)="onCancel($event)">Cancel</button>
-                <button [disabled]="form.invalid"
-                    [style]="{ backgroundColor: form.invalid ? 'grey' : '#5cb85c' }">
-                    Save
-                </button>
+                <button [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : '#22223B' }" style="color: #F2E9E4;">Save</button>
             </div>   
           </form>
         </div>
