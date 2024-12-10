@@ -22,16 +22,19 @@ export class ApiService {
   getSingleRecipe(id: string) {
     return this.http.get<Recipe>(`/api/recipes/${id}`)
   }
-  createRecipe(recipeName: string,image:string,description: string){
-    const payload = {recipeName,description,image}
-    return this.http.post<Recipe>(`/api/recipes`,payload);
+  createRecipe(recipeName: string, image: string, description: string) {
+    const payload = { recipeName, description, image }
+    return this.http.post<Recipe>(`/api/recipes`, payload);
   }
-  createComment(text: string,recipeId:string){
-   const payload = {commentText: text};
-   return this.http.post<Comment>(`/api/recipes/${recipeId}`,payload)
+  createComment(text: string, recipeId: string) {
+    const payload = { commentText: text };
+    return this.http.post<Comment>(`/api/recipes/${recipeId}`, payload)
   }
-  subscribe(recipeId:string){
-    const payload = {recipeId}
-    return this.http.put(`/api/recipes/${recipeId}`,payload)
+  subscribe(recipeId: string) {
+    const payload = { recipeId }
+    return this.http.put(`/api/recipes/${recipeId}`, payload)
+  }
+  deleteRecipe(recipeId: string) {
+    return this.http.delete(`/api/recipes/${recipeId}`);
   }
 }
