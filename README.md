@@ -2,32 +2,116 @@
 
 After downloading the Rest-Api at [Rest-Api](https://github.com/IvanMishevski/Rest-api), use `npm install` and them `npm start`.
 
-# RecipeSharingCommunity
+# Recipe Sharing Community
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+A modern web application built with Angular that allows users to share and discover recipes.
 
-## Development server
+## Technologies Used
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Frontend Framework**: Angular (Standalone Components)
+- **Form Handling**: Angular Forms (Template-driven and Reactive)
+- **Routing**: Angular Router
+- **Date Handling**: Moment.js
+- **HTTP Communication**: Angular HttpClient
+- **State Management**: Services with RxJS
 
-## Code scaffolding
+## Key Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- User Authentication (Register/Login/Logout)
+- Profile Management
+- Recipe CRUD Operations
+- Recipe Subscription System
+- Comments on Recipes
+- Error Handling
+- Custom Pipes for Text Formatting and Time Display
 
-## Build
+## Project Structure
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- \`src/app/\`
+  - \`core/\` - Core components (Header, Footer, Error handling)
+  - \`user/\` - User-related components and services
+  - \`recipes/\` - Recipe-related components
+  - \`shared/\` - Shared components, pipes
+  - \`utils/\` - Validators and utilities
+  - \`types/\` - TypeScript interfaces
 
-## Running unit tests
+## Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the repository
+\`\`\`bash
+git clone [repository-url]
+\`\`\`
 
-## Running end-to-end tests
+2. Install dependencies
+\`\`\`bash
+npm install
+\`\`\`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. Run the development server
+\`\`\`bash
+ng serve
+\`\`\`
 
-## Further help
+4. Navigate to \`http://localhost:4200/\`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Setting Up the Backend REST API
+
+1. Navigate to the server directory
+\`\`\`bash
+cd server
+\`\`\`
+
+2. Install server dependencies
+\`\`\`bash
+npm install
+\`\`\`
+
+3. Start the REST API server
+\`\`\`bash
+npm start
+\`\`\`
+
+The API server will run on \`http://localhost:5000\`
+
+> Note: Make sure MongoDB is installed and running on your system before starting the API server.
+
+## Environment Setup
+
+Both the frontend and backend servers need to run simultaneously:
+- Frontend: \`http://localhost:4200\`
+- Backend: \`http://localhost:5000\`
+
+## Main Features
+
+### User Management
+- User registration with email validation
+- Profile editing
+- Authentication state management
+
+### Recipe Management
+- Create new recipes
+- View recipe catalog
+- Detailed recipe view
+- Delete recipes (owner only)
+- Subscribe to recipes
+- Comment on recipes
+
+### Additional Features
+- Responsive design
+- Custom form validators
+- Loading states
+- Error message handling
+- Time elapsed pipe
+- Text slicing pipe
+
+## Architecture
+
+The application follows Angular's recommended practices:
+- Standalone components for better modularity
+- Service-based state management
+- Route guards for protected routes
+- Reactive and Template-driven forms
+- Custom validators and pipes
+- Observable-based data handling"
 
 
