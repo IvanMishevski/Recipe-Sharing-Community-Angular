@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { DOMAINS } from '../../constants';
@@ -14,7 +14,7 @@ import { ErrorMsgService } from '../../core/error-msg/error-msg.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   domains = DOMAINS;
   constructor(private userService: UserService, private router: Router, private errorMsgService: ErrorMsgService) { }
   login(form: NgForm) {
@@ -33,5 +33,8 @@ export class LoginComponent {
           form.resetForm();
         }
       })
+  }
+  ngOnInit() {
+    this.errorMsgService.clearError();
   }
 }

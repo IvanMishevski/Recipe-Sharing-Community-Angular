@@ -6,6 +6,7 @@ import { emailValidator } from '../../utils/email.validator';
 import { DOMAINS } from '../../constants';
 import { matchPasswordsValidator } from '../../utils/matchPasswords.validator';
 import { ErrorMsgComponent } from '../../core/error-msg/error-msg.component';
+import { ErrorMsgService } from '../../core/error-msg/error-msg.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ import { ErrorMsgComponent } from '../../core/error-msg/error-msg.component';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private errorMsgService: ErrorMsgService) { }
   form = new FormGroup({
     username: new FormControl('', [
       Validators.required,
@@ -78,5 +79,8 @@ export class RegisterComponent {
         }
       })
 
+  }
+  ngOnInit() {
+    this.errorMsgService.clearError();
   }
 }
