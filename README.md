@@ -1,6 +1,6 @@
 ## Link to Rest-Api
 
-After downloading the Rest-Api at [Rest-Api](https://github.com/IvanMishevski/Rest-api), use `npm install` and them `npm start`.
+Downloading the Rest-Api at [Rest-Api](https://github.com/IvanMishevski/Rest-api), use `npm install` and then `npm start`.
 
 # Recipe Sharing Community
 
