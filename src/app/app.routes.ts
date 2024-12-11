@@ -30,7 +30,6 @@ export const routes: Routes = [
      ]},
      {path:'add-recipe',component:AddRecipeComponent, canActivate:[AuthGuard]},
     // //end recipe routing
-    {path: 'error', component: ErrorMsgComponent },
     {path:'404', component:ErrorComponent},
     {path:'**', component:ErrorComponent}
 

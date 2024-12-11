@@ -2,6 +2,7 @@
 <body>
     <div class="wrapper">
       <div class="title"><p>Login Form</p></div>
+      <app-error-msg></app-error-msg>
       <form #form="ngForm" (ngSubmit)="login(form)">
         <div class="row">
             <i class="fa-solid fa-envelope"></i>

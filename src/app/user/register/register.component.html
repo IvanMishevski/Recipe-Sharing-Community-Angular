@@ -1,6 +1,7 @@
 <body>
   <div class="wrapper">
     <h2>Registration</h2>
+    <app-error-msg></app-error-msg>
     <form [formGroup]="form" (ngSubmit)="register()">
       <!-- username -->
       <div class="input-box">

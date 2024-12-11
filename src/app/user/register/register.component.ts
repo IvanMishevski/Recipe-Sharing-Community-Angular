@@ -5,11 +5,12 @@ import { UserService } from '../user.service';
 import { emailValidator } from '../../utils/email.validator';
 import { DOMAINS } from '../../constants';
 import { matchPasswordsValidator } from '../../utils/matchPasswords.validator';
+import { ErrorMsgComponent } from '../../core/error-msg/error-msg.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule,ErrorMsgComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -63,8 +64,18 @@ export class RegisterComponent {
     } = this.form.value;
 
     this.userService.register(username!, email!, tel!, password!, rePassword!)
-      .subscribe(() => {
-        this.router.navigate(['/recipes'])
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/recipes'])
+        },
+        error: (err) => {
+          // The ErrorMsgService will automatically handle displaying the error
+          console.error('Registration error:', err);
+        },
+        complete: () => {
+          // Form stays accessible
+          this.form.enable();
+        }
       })
 
   }
