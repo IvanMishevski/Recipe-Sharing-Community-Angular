@@ -144,5 +144,36 @@ html, body {
   margin-top: 10px;
   font-family: Verdana,Geneva,Tahoma,sans-serif;
 }
+.no-recipes{
+  margin-bottom: 24.10%;
+  align-items: center;
+  
+}
+.no-recipes h1,h2{
+  color:#22223B;
+  text-align: center;
+}
+.no-recipes-btn{
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 1px 1px rgb(87, 86, 86);
+  background-color: #9A8C98;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  /* center the button */
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+
+}.no-recipes-btn:hover{
+  opacity: 0.8;
+  transform: scale(1.1);
+}
 
 

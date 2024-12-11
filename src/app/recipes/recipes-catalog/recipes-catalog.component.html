@@ -1,24 +1,38 @@
 <body>
     <div class="container">
-        @for (recipe of recipes; track $index) {
-        <div class="product-card">
-            <div class="product-image">
-                <img [src]="recipe.image" [alt]="recipe.recipeName">
-            </div>
-            <div class="product-details">
-                <h2 class="product-title">{{recipe.recipeName}}</h2>
-                <p class="product-description">{{recipe.description | slice: 25}}</p>
-                <div class="buttons">
-                    <button [routerLink]="recipe._id" class="details-btn">Details</button>
-                     @if(userId == recipe.userId._id){
-                        <button [routerLink]="recipe._id + '/edit'" class="details-btn">Edit</button>
-                        <button  (click)="onDelete(recipe._id)" class="details-btn">Delete</button>
-                     }
-                    
+        @if(isLoading){
+            <app-loader/>
+        }@else if(hasRecipes){
+            @for (recipe of recipes; track $index) {
+                <div class="product-card">
+                    <div class="product-image">
+                        <img [src]="recipe.image" [alt]="recipe.recipeName">
+                    </div>
+                    <div class="product-details">
+                        <h2 class="product-title">{{recipe.recipeName}}</h2>
+                        <p class="product-description">{{recipe.description | slice: 25}}</p>
+                        <div class="buttons">
+                            <button [routerLink]="recipe._id" class="details-btn">Details</button>
+                             @if(userId == recipe.userId._id){
+                                <button [routerLink]="recipe._id + '/edit'" class="details-btn">Edit</button>
+                                <button  (click)="onDelete(recipe._id)" class="details-btn">Delete</button>
+                             }
+                            
+                        </div>
+                    </div>
                 </div>
+                }
+        }@else{
+            <div class="no-recipes">
+                <h1>No recipes found.</h1>
+                @if(isLoggedIn){
+                    <h2>Be the first to add one!</h2>
+                    <button class="no-recipes-btn" routerLink="/add-recipe">Add Recipe</button>
+                }@else{
+                    <h2>Login and create your own recipes!</h2>
+                    <button class="no-recipes-btn" routerLink="/login">Login</button>
+                }
             </div>
-        </div>
         }
-
     </div>
 </body>

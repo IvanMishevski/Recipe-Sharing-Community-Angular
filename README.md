@@ -58,7 +58,8 @@ ng serve
 
 4. Navigate to \`http://localhost:4200/\`
 
-
+Make sure you have installed Angular CLI globally.
+`npm install -g @angular/cli`
 
 
 ## Environment Setup
