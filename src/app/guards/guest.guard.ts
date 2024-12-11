@@ -7,6 +7,10 @@ export const GuestGuard = () => {
   const userService = inject(UserService);
   const router = inject(Router);
 
+  if (!userService.isLogged) {
+    return true;
+  }
+
   return userService.getProfile().pipe(
     switchMap(() => userService.user$),
     take(1),
