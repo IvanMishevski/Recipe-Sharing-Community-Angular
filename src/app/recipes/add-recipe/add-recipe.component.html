@@ -19,12 +19,12 @@
                  <div>
                     @if(inputRecipeName?.errors?.['required']){
                         <p class="error">
-                            Recipe name is required.
+                            The title is required.
                         </p> 
                     }
                     @if(inputRecipeName?.errors?.['minlength']){
                         <p class="error">
-                            Recipe name must be at least 5 characters long.
+                            The title must be at least 5 characters long.
                         </p>
                     }
                     
@@ -61,12 +61,12 @@
                     <div>
                        @if(inputDescriptionText?.errors?.['required']){
                            <p class="error">
-                            The field with your post is required.
+                            The description of your recipy is required.
                            </p> 
                        }
                        @if(inputDescriptionText?.errors?.['minlength']){
                            <p class="error">
-                            Post must be at least 10 characters long.
+                            The description of your recipy must be at least 10 characters long.
                            </p>
                        }
                        

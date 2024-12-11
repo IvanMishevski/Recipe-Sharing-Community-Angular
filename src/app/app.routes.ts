@@ -10,6 +10,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
 import { CurrentRecipeComponent } from './recipes/current-recipe/current-recipe.component';
 import { GuestGuard } from './guards/guest.guard';
+import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
 
 
 
@@ -24,7 +25,8 @@ export const routes: Routes = [
     //start recipes routing
      {path:'recipes', children:[
      {path: '', component:RecipesCatalogComponent},
-     {path: ':recipeId',component:CurrentRecipeComponent}    
+     {path: ':recipeId',component:CurrentRecipeComponent},
+     {path: ':recipeId/edit',component:EditRecipeComponent,canActivate:[AuthGuard]}   
      ]},
      {path:'add-recipe',component:AddRecipeComponent, canActivate:[AuthGuard]},
     // //end recipe routing

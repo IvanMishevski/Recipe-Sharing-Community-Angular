@@ -37,4 +37,11 @@ export class ApiService {
   deleteRecipe(recipeId: string) {
     return this.http.delete(`/api/recipes/${recipeId}`);
   }
+  editRecipe(recipeId: string, recipeName: string, description: string, image: string) {
+    return this.http.put<Recipe>(`/api/recipes/${recipeId}/edit`, {
+      recipeName,
+      description,
+      image,
+    });
+}
 }

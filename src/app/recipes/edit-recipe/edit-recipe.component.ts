@@ -15,9 +15,9 @@ export class EditRecipeComponent implements OnInit {
 
   recipe = {} as Recipe;
   form = new FormGroup({
-    recipeName: new FormControl('', [Validators.required]),
+    recipeName: new FormControl('', [Validators.required,Validators.minLength(5)]),
     description: new FormControl('', [Validators.required]),
-    image: new FormControl('', [Validators.required])
+    image: new FormControl('', [Validators.required,Validators.minLength(10)])
   });
 
   constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute) { }
@@ -33,16 +33,17 @@ export class EditRecipeComponent implements OnInit {
       });
     })
   }
-  onSubmit() {
+  onSubmit(): void {
     if (this.form.invalid) {
       return;
     }
+    
     const id = this.route.snapshot.params['recipeId'];
-    const {recipeName, image, description } = this.form.value;
+    const { recipeName, description, image } = this.form.value;
 
-    this.apiService.editRecipe( id, recipeName!, image!, description!,'edit').subscribe(() => {
-      this.router.navigate([`/recipes/${ id}`]);
-    })
+    this.apiService.editRecipe(id, recipeName!, description!, image!).subscribe(() => {
+      this.router.navigate(['/recipes']);
+    });
   }
   isFieldTextMissing(controlName: string) {
     return this.form.get(controlName)?.touched &&
