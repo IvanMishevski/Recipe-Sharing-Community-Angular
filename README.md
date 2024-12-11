@@ -1,6 +1,10 @@
-## Link to Rest-Api
+## Link and  Setting Up the Backend REST API
 
-Downloading the Rest-Api at [Rest-Api](https://github.com/IvanMishevski/Rest-api), use `npm install` and then `npm start`.
+git clone [Rest-Api](https://github.com/IvanMishevski/Rest-api) or 
+download the Rest-Api at (https://github.com/IvanMishevski/Rest-api), use `npm install` and then `npm start`.
+The API server will run on \`http://localhost:5000\`
+
+> Note: Make sure MongoDB is installed and running on your system before starting the API server.
 
 # Recipe Sharing Community
 
@@ -54,26 +58,8 @@ ng serve
 
 4. Navigate to \`http://localhost:4200/\`
 
-## Setting Up the Backend REST API
 
-1. Navigate to the server directory
-\`\`\`bash
-cd server
-\`\`\`
 
-2. Install server dependencies
-\`\`\`bash
-npm install
-\`\`\`
-
-3. Start the REST API server
-\`\`\`bash
-npm start
-\`\`\`
-
-The API server will run on \`http://localhost:5000\`
-
-> Note: Make sure MongoDB is installed and running on your system before starting the API server.
 
 ## Environment Setup
 
