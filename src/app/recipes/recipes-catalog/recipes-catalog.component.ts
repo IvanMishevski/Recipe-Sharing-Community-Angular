@@ -39,9 +39,6 @@ export class RecipesCatalogComponent {
       this.isLoading = false;
     });
   }
-  onEdit(recipeId:string) {
-
-  }
   onDelete(recipeId:string){
     return this.apiService.deleteRecipe(recipeId).subscribe({
       next: () => {

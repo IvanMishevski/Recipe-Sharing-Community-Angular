@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="new-recipe-border">
+        <div class="header-background">
+            <h1>Edit Recipe</h1>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="new-recipe-content">
+                <div class="input">
+                    <label for="recipeName">Recipe Name:</label>
+                    <input type="text" id="recipeName" name="recipeName" formControlName="recipeName" 
+                           [class]="{'input-error': isFieldTextMissing('recipeName')}">
+                    @if (isFieldTextMissing('recipeName')) {
+                        <p class="error">Recipe Name is required!</p>
+                    }
+                </div>
+
+                <div class="input">
+                    <label for="image">Image:</label>
+                    <input type="text" id="image" name="image" formControlName="image"
+                           [class]="{'input-error': isFieldTextMissing('image')}">
+                    @if (isFieldTextMissing('image')) {
+                        <p class="error">Image URL is required!</p>
+                    }
+                </div>
+
+                <div class="input">
+                    <label for="description">Description:</label>
+                    <textarea name="description" id="description" formControlName="description"
+                             [class]="{'input-error': isFieldTextMissing('description')}"></textarea>
+                    @if (isFieldTextMissing('description')) {
+                        <p class="error">Description is required!</p>
+                    }
+                </div>
+
+                <div class="new-recipe-buttons">
+                    <button type="submit" [disabled]="form.invalid">Save Changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
